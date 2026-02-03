@@ -1,209 +1,21 @@
-<script>
-  var passwordCorretta = "cedformia"; // <-- CAMBIA LA PASSWORD DA QUI
-
-  var pwd = prompt("Inserisci la password per accedere alla rubrica:");
-
-  if (pwd !== passwordCorretta) {
-    document.write("<h2>Accesso negato</h2>");
-    document.write("<p>Password errata.</p>");
-    throw new Error("Accesso bloccato");
-  }
-</script>
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<title>Rubrica Telefonica</title>
-
-<!-- CSS DataTables -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-
-<!-- DataTables JS -->
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-
+  <meta charset="UTF-8">
+  <title>Accesso Rubrica</title>
 </head>
 <body>
 
-<h1>Rubrica Telefonica</h1>
-
-<table id="rub" class="display" style="width:100%">
-<thead>
-<tr>
-<th>Cognome</th>
-<th>Nome</th>
-<th>Numero</th>
-<th>Settore di appartenenza</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>COLARULLO</td><td>PAOLA</td><td>430</td><td>SETTORE 6</td></tr>
-<tr><td>ANGELINO</td><td>VERONICA</td><td>616</td><td>SETTORE 2</td></tr>
-<tr><td>ARZANO</td><td>GIANLUCA</td><td>623</td><td>SETTORE 3</td></tr>
-<tr><td>ASL</td><td>INTERNOASL</td><td>275</td><td>ASL</td></tr>
-<tr><td>ASSAIANTE</td><td>MARIA</td><td>320</td><td>STAFF DEL SEGRETARIO GENERALE</td></tr>
-<tr><td>BIBLIOTECA</td><td>BIBLIOTECA</td><td>620</td><td>SETTORE 3</td></tr>
-<tr><td>ASSESSORE</td><td>BILANCIO</td><td>552</td><td>ASSESSORE</td></tr>
-<tr><td>CECCHETTI</td><td>ANNAMARIA</td><td>343</td><td>SETTORE 6</td></tr>
-<tr><td>CED</td><td>UFFICIO</td><td>246</td><td>SETTORE 1</td></tr>
-<tr><td>CENTOLA</td><td>MAURIZIO</td><td>382</td><td>SETTORE 2</td></tr>
-<tr><td>CENTRALINO</td><td>CENTRALINO</td><td>304</td><td>SETTORE 1</td></tr>
-<tr><td>CENTRALINO</td><td>CENTRALINO</td><td>305</td><td>SETTORE 1</td></tr>
-<tr><td>CIANO</td><td>PAOLA</td><td>315</td><td>SETTORE 2</td></tr>
-<tr><td>CICCARELLI</td><td>RITA</td><td>417</td><td>SETTORE 2</td></tr>
-<tr><td>CIVITILLO</td><td>LOREDANA</td><td>715</td><td>SETTORE 4</td></tr>
-<tr><td>CLAUDIA SANDOLO</td><td>MARIA</td><td>622</td><td>SETTORE 2</td></tr>
-<tr><td>ASSESSORE</td><td>COMMERCIO</td><td>553</td><td>ASSESSORE</td></tr>
-<tr><td>COMUNE</td><td>SINDACO</td><td>402</td><td>SINDACO</td></tr>
-<tr><td>CONSIGLIO COMUNALE</td><td>PRESIDENTE</td><td>357</td><td>PRESIDENTE CONSIGLIO COMUNALE</td></tr>
-<tr><td>CORRAO</td><td>MONICA</td><td>455</td><td>SETTORE 7</td></tr>
-<tr><td>CORSETTI</td><td>LUISA</td><td>365</td><td>SETTORE 4</td></tr>
-<tr><td>CREDITO</td><td>MICRO</td><td>234</td><td>MICRO CREDITO</td></tr>
-<tr><td>ASSESSORE</td><td>CULTURA</td><td>408</td><td>ASSESSORE</td></tr>
-<tr><td>D ACUNTO</td><td>PASQUALE</td><td>379</td><td>SETTORE 2</td></tr>
-<tr><td>D ANGELO</td><td>PIETRO</td><td>327</td><td>DIRIGENTE</td></tr>
-<tr><td>D ORAZIO</td><td>PIETRO</td><td>510</td><td>DIRIGENTE</td></tr>
-<tr><td>D URSO</td><td>BRUNO</td><td>323</td><td>SETTORE 7</td></tr>
-<tr><td>D URSO</td><td>FAUSTO</td><td>506</td><td>SETTORE 1</td></tr>
-<tr><td>DAVINO</td><td>EMANUELE</td><td>347</td><td>SETTORE 6</td></tr>
-<tr><td>DE MEO</td><td>GIOSY</td><td>483</td><td>SETTORE 2</td></tr>
-<tr><td>DE MEO</td><td>FLORIANA</td><td>531</td><td>SETTORE 2</td></tr>
-<tr><td>DE MEO</td><td>VITTORIO</td><td>540</td><td>SETTORE 1</td></tr>
-<tr><td>DE MEO</td><td>MARIANTONIETTA</td><td>405</td><td>STAFF DEL SINDACO</td></tr>
-<tr><td>DE SIMONE</td><td>CANDIDO</td><td>560</td><td>STAFF DEL SINDACO</td></tr>
-<tr><td>DEMANIO</td><td>UFFICIO</td><td>372</td><td>SETTORE 7</td></tr>
-<tr><td>DI LIBERO</td><td>SERGIO</td><td>374</td><td>SETTORE 7</td></tr>
-<tr><td>DI LUGLIO</td><td>CARMINE</td><td>324</td><td>SETTORE 5</td></tr>
-<tr><td>DI NITTO</td><td>ALESSANDRA</td><td>502</td><td>SETTORE 5</td></tr>
-<tr><td>DI NUCCI</td><td>PATRIZIA</td><td>350</td><td>SETTORE 7</td></tr>
-<tr><td>DI NUCCI</td><td>ELVIRA</td><td>542</td><td>SETTORE 1</td></tr>
-<tr><td>DI PACE</td><td>GIUDICE</td><td>501</td><td>SETTORE 2</td></tr>
-<tr><td>DI RUSSO</td><td>ANTONIO</td><td>367</td><td>STAFF DEL SINDACO</td></tr>
-<tr><td>ELETTORALE</td><td>UFFICIO</td><td>514</td><td>SETTORE 1</td></tr>
-<tr><td>ESPOSITO</td><td>PATRIZIA</td><td>532</td><td>SETTORE 2</td></tr>
-<tr><td>FALSO</td><td>CRISTIAN</td><td>444</td><td>SETTORE 1</td></tr>
-<tr><td>FARINELLA</td><td>CARMINE</td><td>525</td><td>SETTORE 2</td></tr>
-<tr><td>FIORITO</td><td>VINCENZO</td><td>339</td><td>SETTORE 4</td></tr>
-<tr><td>FORCINA</td><td>FAUSTO</td><td>354</td><td>SETTORE 1</td></tr>
-<tr><td>FORTE</td><td>MICHELA</td><td>369</td><td>SETTORE 4</td></tr>
-<tr><td>FORTE</td><td>ANGELA</td><td>606</td><td>SETTORE 2</td></tr>
-<tr><td>FRANCIOSA</td><td>ANTONIETTA</td><td>537</td><td>SETTORE 1</td></tr>
-<tr><td>GALISE</td><td>STEFANIA</td><td>604</td><td>SETTORE 2</td></tr>
-<tr><td>GENNARO</td><td>MARIA</td><td>517</td><td>SETTORE 5</td></tr>
-<tr><td>GIANNETTI</td><td>CLAUDIO</td><td>526</td><td>SETTORE 2</td></tr>
-<tr><td>GIONTA</td><td>GIANCARLO</td><td>362</td><td>SETTORE 1</td></tr>
-<tr><td>GIONTI</td><td>ANDREA</td><td>557</td><td>STAFF DEL SINDACO</td></tr>
-<tr><td>GIORDANO</td><td>STEFANIA</td><td>416</td><td>SETTORE 4</td></tr>
-<tr><td>GIUFFRIDA</td><td>CONCETTA</td><td>519</td><td>SETTORE 5</td></tr>
-<tr><td>GRANATA</td><td>GIOVANNA</td><td>562</td><td>SETTORE 7</td></tr>
-<tr><td>IALONGO</td><td>BRUNO</td><td>404</td><td>SETTORE 4</td></tr>
-<tr><td>IANNITTI</td><td>ALDO</td><td>558</td><td>SETTORE 6</td></tr>
-<tr><td>IAT</td><td>PUNTO</td><td>386</td><td>SETTORE 3</td></tr>
-<tr><td>ISTAT</td><td>ISTAT</td><td>235</td><td>SETTORE 1</td></tr>
-<tr><td>ITALIANA CIECHI</td><td>ASSOCIAZIONE</td><td>423</td><td>ASSOCIAZIONE CIECHI</td></tr>
-<tr><td>LIBERACE</td><td>EUGENIO</td><td>714</td><td>SETTORE 2</td></tr>
-<tr><td>LOCALE</td><td>POLIZIA</td><td>308</td><td>SETTORE 2</td></tr>
-<tr><td>MALLOZZI</td><td>LUCIANO</td><td>407</td><td>SETTORE 2</td></tr>
-<tr><td>MANCA</td><td>ANTONINO</td><td>313</td><td>SETTORE 2</td></tr>
-<tr><td>MANUTENZIONE</td><td>MANUTENZIONE</td><td>301</td><td>SETTORE 6</td></tr>
-<tr><td>MARTELLUCCI</td><td>ERASMO</td><td>377</td><td>SETTORE 2</td></tr>
-<tr><td>MARZULLO</td><td>SABINA</td><td>620</td><td>SETTORE 3</td></tr>
-<tr><td>MASIELLO</td><td>VALENTINA</td><td>611</td><td>SETTORE 2</td></tr>
-<tr><td>MASTANTUONO</td><td>REMO</td><td>410</td><td>SETTORE 4</td></tr>
-<tr><td>MASTROBATTISTA</td><td>DORIDA</td><td>349</td><td>SETTORE 4</td></tr>
-<tr><td>MASTROIANNI</td><td>FILIPPO</td><td>398</td><td>SETTORE 1</td></tr>
-<tr><td>MAZZETTI</td><td>ANTONIETTA</td><td>561</td><td>SETTORE 7</td></tr>
-<tr><td>MELAZZO</td><td>CRISTINA</td><td>454</td><td>SETTORE 3</td></tr>
-<tr><td>MELI</td><td>ILARIA</td><td>366</td><td>SETTORE 4</td></tr>
-<tr><td>MESCHINO</td><td>MAURIZIO</td><td>345</td><td>SETTORE 4</td></tr>
-<tr><td>MIGLIORATO</td><td>ENZO</td><td>338</td><td>SETTORE 4</td></tr>
-<tr><td>MILLE</td><td>MONICA</td><td>341</td><td>SETTORE 6</td></tr>
-<tr><td>MINUTILLO</td><td>DONATELLA</td><td>380</td><td>SETTORE 4</td></tr>
-<tr><td>MORICONI</td><td>EUGENIO</td><td>609</td><td>SETTORE 2</td></tr>
-<tr><td>NOCELLA</td><td>LUCA</td><td>605</td><td>SETTORE 3</td></tr>
-<tr><td>PANGIA</td><td>SIMONE</td><td>603</td><td>SETTORE 3</td></tr>
-<tr><td>PARASMO</td><td>MARIANGELA</td><td>613</td><td>SETTORE 2</td></tr>
-<tr><td>PERUCCHINI</td><td>LUIGI</td><td>529</td><td>SETTORE 1</td></tr>
-<tr><td>PERUGINI</td><td>ANNA</td><td>360</td><td>SETTORE 1</td></tr>
-<tr><td>PESCATORE</td><td>RITA</td><td>431</td><td>SETTORE 1</td></tr>
-<tr><td>PEZONE</td><td>NATALINA</td><td>381</td><td>SETTORE 4</td></tr>
-<tr><td>PICANO</td><td>ROSANNA</td><td>311</td><td>DIRIGENTE</td></tr>
-<tr><td>PISCOPO</td><td>MAURO</td><td>288</td><td>SETTORE 2</td></tr>
-<tr><td>PISTILLO</td><td>STEFANIA</td><td>383</td><td>SETTORE 7</td></tr>
-<tr><td>PURIFICATO</td><td>ALFREDO</td><td>314</td><td>SETTORE 1</td></tr>
-<tr><td>PURIFICATO</td><td>ENRICO</td><td>528</td><td>SETTORE 6</td></tr>
-<tr><td>RAPONI</td><td>LUIGI</td><td>450</td><td>SETTORE 2</td></tr>
-<tr><td>RASILE</td><td>SILVIO</td><td>351</td><td>SETTORE 1</td></tr>
-<tr><td>RICCARDELLI</td><td>POMPEO</td><td>541</td><td>SETTORE 1</td></tr>
-<tr><td>ROSSI</td><td>DANIELE</td><td>850</td><td>DIRIGENTE</td></tr>
-<tr><td>RUGGIERI</td><td>LUCIO</td><td>375</td><td>SETTORE 2</td></tr>
-<tr><td>RUSSO</td><td>AURORA</td><td>310</td><td>SETTORE 2</td></tr>
-<tr><td>SACCOCCIA</td><td>MARINA</td><td>330</td><td>SEGRETARIO GENERALE</td></tr>
-<tr><td>SCIARRA</td><td>GIUSEPPINA</td><td>724</td><td>DIRIGENTE</td></tr>
-<tr><td>SCIPIONE</td><td>FEDERICA</td><td>340</td><td>SETTORE 4</td></tr>
-<tr><td>SEGRETERIA</td><td>SINDACO</td><td>406</td><td>STAFF DEL SINDACO</td></tr>
-<tr><td>SERVIZI SOCIALI</td><td>ACCOGLIENZA</td><td>202</td><td>SETTORE 2</td></tr>
-<tr><td>SERVIZI SOCIALI</td><td>UFFICIO</td><td>608</td><td>SETTORE 2</td></tr>
-<tr><td>SESTITO</td><td>ITALIA</td><td>318</td><td>SETTORE 2</td></tr>
-<tr><td>SIMEONE</td><td>FRANCESCA</td><td>332</td><td>SETTORE 7</td></tr>
-<tr><td>SINDACO</td><td>SEGRETERIA</td><td>556</td><td>STAFF DEL SINDACO</td></tr>
-<tr><td>SINDACO</td><td>SEGRETERIA</td><td>409</td><td>STAFF DEL SINDACO</td></tr>
-<tr><td>SOCIO SANITARIO</td><td>DISTRETTO</td><td>602</td><td>SETTORE 2</td></tr>
-<tr><td>SOCIO SANITARIO</td><td>DISTRETTO</td><td>612</td><td>SETTORE 2</td></tr>
-<tr><td>SOCIO SANITARIO</td><td>DISTRETTO</td><td>615</td><td>SETTORE 2</td></tr>
-<tr><td>SOES</td><td>SOES</td><td>322</td><td>SETTORE 2</td></tr>
-<tr><td>SPARAGNA</td><td>TANIA</td><td>344</td><td>SETTORE 4</td></tr>
-<tr><td>SPINOSA</td><td>SERGIO</td><td>428</td><td>SETTORE 6</td></tr>
-<tr><td>STORICO MOLA</td><td>ARCHIVIO</td><td>901</td><td>SETTORE 3</td></tr>
-<tr><td>SUAP</td><td>TIROCINIO</td><td>420</td><td>SETTORE 2</td></tr>
-<tr><td>TAGLIALATELA</td><td>ERNESTINA</td><td>393</td><td>STAFF DEL SEGRETARIO GENERALE</td></tr>
-<tr><td>TALLARICO</td><td>DOMENICO</td><td>607</td><td>SETTORE 1</td></tr>
-<tr><td>TERRERI</td><td>GIOCONDA</td><td>614</td><td>SETTORE 3</td></tr>
-<tr><td>TOMAO ANAGRAFE</td><td>ANTONIO</td><td>712</td><td>SETTORE 2</td></tr>
-<tr><td>TOMAO TARI</td><td>ANTONIO</td><td>368</td><td>SETTORE 4</td></tr>
-<tr><td>TREGLIA</td><td>SALVATORE</td><td>413</td><td>SETTORE 4</td></tr>
-<tr><td>TURISMO</td><td>UFFICIO</td><td>486</td><td>SETTORE 3</td></tr>
-<tr><td>UNICO PATRIMONIALE</td><td>CANONE</td><td>287</td><td>SETTORE 4</td></tr>
-<tr><td>URBANISTICA</td><td>UFFICIO</td><td>321</td><td>SETTORE 7</td></tr>
-<tr><td>VICE</td><td>SINDACO</td><td>309</td><td>VICE SINDACO</td></tr>
-<tr><td>VICE</td><td>SINDACO</td><td>550</td><td>VICE SINDACO</td></tr>
-<tr><td>VIOLA</td><td>LUISA</td><td>711</td><td>SETTORE 2</td></tr>
-<tr><td>ZANGRILLO</td><td>NICOLA</td><td>456</td><td>SETTORE 7</td></tr>
-<tr><td>MARIAROSARIA</td><td>NARDELLA</td><td>317</td><td>SETTORE 2</td></tr>
-<tr><td>ASSESSORE</td><td>POLITICHE SOCIALI</td><td>631</td><td>ASSESSORE</td></tr>
-<tr><td>ASSESSORE</td><td>URBANISTICA</td><td>632</td><td>ASSESSORE</td></tr>
-<tr><td>ASSESSORE</td><td>ATTIVITA' PRODUTTIVE</td><td>633</td><td>ASSESSORE</td></tr>
-<tr><td>COPPOLA</td><td>ANNAMARIA</td><td>545</td><td>SETTORE 1</td></tr>
-<tr><td>FORTE</td><td>ANACLETO</td><td>348</td><td>SETTORE 7</td></tr>
-<tr><td>DI MOLA</td><td>LIBERATO</td><td>388</td><td>SETTORE 1</td></tr>
-<tr><td>DI RUSSO</td><td>FRANCESCO</td><td>543</td><td>SETTORE 1</td></tr>
-<tr><td>PALUMBO</td><td>FULVIO</td><td>546</td><td>SETTORE 1</td></tr>
-</tbody>
-</table>
-
 <script>
-$(document).ready(function() {
-    $('#rub').DataTable({
-        language: {
-            zeroRecords: "Nessun numero trovato",
-            lengthMenu: "Mostra _MENU_ numeri",
-            info: "Pagina _PAGE_ di _PAGES_",
-            infoEmpty: "Nessun numero trovato",
-            infoFiltered: "(Filtrati da _MAX_ numeri totali)",
-            search: "Ricerca:",
-            paginate: {
-                first: "Prima",
-                last: "Ultima",
-                next: "Prossima",
-                previous: "Precedente"
-            }
-        }
-    });
-});
+  const passwordCorretta = "comune123"; // CAMBIA QUI
+  const pwd = prompt("Inserisci la password per accedere alla rubrica:");
+
+  if (pwd === passwordCorretta) {
+    window.location.href = "rubrica.html";
+  } else {
+    document.body.innerHTML = "<h2>Accesso negato</h2>";
+  }
 </script>
 
 </body>
 </html>
-
