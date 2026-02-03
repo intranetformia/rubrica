@@ -1,3 +1,14 @@
+<script>
+  var passwordCorretta = "cedformia"; // <-- CAMBIA LA PASSWORD DA QUI
+
+  var pwd = prompt("Inserisci la password per accedere alla rubrica:");
+
+  if (pwd !== passwordCorretta) {
+    document.write("<h2>Accesso negato</h2>");
+    document.write("<p>Password errata.</p>");
+    throw new Error("Accesso bloccato");
+  }
+</script>
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -195,3 +206,4 @@ $(document).ready(function() {
 
 </body>
 </html>
+
