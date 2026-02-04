@@ -7,13 +7,23 @@
 <body>
 
 <script>
-  const passwordCorretta = "cedformia"; // CAMBIA QUI
-  const pwd = prompt("Inserisci la password per accedere alla rubrica:");
+  const now = new Date();
 
-  if (pwd === passwordCorretta) {
+  const ore = String(now.getHours()).padStart(2, "0");
+  const minuti = String(now.getMinutes()).padStart(2, "0");
+
+  const codiceValido = "COMUNE" + ore + minuti;
+
+  const inserito = prompt(
+    "Inserisci il codice di accesso (es. COMUNE1114):"
+  );
+
+  if (inserito === codiceValido) {
+    sessionStorage.setItem("accesso", "ok");
     window.location.href = "rubrica.html";
   } else {
-    document.body.innerHTML = "<h2>Accesso negato</h2>";
+    document.body.innerHTML =
+      "<h2>Accesso negato</h2><p>Codice non valido.</p>";
   }
 </script>
 
