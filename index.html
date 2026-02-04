@@ -19,7 +19,7 @@
   const ore = parts.find(p => p.type === "hour").value;
   const minuti = parts.find(p => p.type === "minute").value;
 
-  const codiceValido = "comune" + ore + minuti;
+  const codiceValido = ore + minuti;
 
   const inserito = prompt("Inserisci il codice di accesso:");
 
@@ -33,6 +33,7 @@
 
 </body>
 </html>
+
 
 
 
