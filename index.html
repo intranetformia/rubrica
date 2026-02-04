@@ -2,46 +2,38 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Accesso Rubrica</title>
+  <title>Accesso</title>
 </head>
 <body>
 
 <script>
-  // Data/ora forzata su Europa/Rome
-  const now = new Date(
-    new Intl.DateTimeFormat("it-IT", {
-      timeZone: "Europe/Rome",
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false
-    }).formatToParts(new Date())
-      .reduce((acc, p) => {
-        if (p.type === "hour") acc.h = p.value;
-        if (p.type === "minute") acc.m = p.value;
-        return acc;
-      }, {})
-  );
+  // Ora di Roma (Europe/Rome)
+  const formatter = new Intl.DateTimeFormat("it-IT", {
+    timeZone: "Europe/Rome",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false
+  });
 
-  const ore = now.h;
-  const minuti = now.m;
+  const parts = formatter.formatToParts(new Date());
+  const ore = parts.find(p => p.type === "hour").value;
+  const minuti = parts.find(p => p.type === "minute").value;
 
   const codiceValido = "comune" + ore + minuti;
 
-  const inserito = prompt(
-    "Inserisci il codice di accesso:"
-  );
+  const inserito = prompt("");
 
   if (inserito === codiceValido) {
     sessionStorage.setItem("accesso", "ok");
     window.location.href = "rubrica.html";
   } else {
-    document.body.innerHTML =
-      "<h2>Accesso negato</h2><p>Codice non valido.</p>";
+    document.body.innerHTML = "<h2>Accesso negato</h2>";
   }
 </script>
 
 </body>
 </html>
+
 
 
 
