@@ -7,15 +7,28 @@
 <body>
 
 <script>
-  const now = new Date();
+  // Data/ora forzata su Europa/Rome
+  const now = new Date(
+    new Intl.DateTimeFormat("it-IT", {
+      timeZone: "Europe/Rome",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false
+    }).formatToParts(new Date())
+      .reduce((acc, p) => {
+        if (p.type === "hour") acc.h = p.value;
+        if (p.type === "minute") acc.m = p.value;
+        return acc;
+      }, {})
+  );
 
-  const ore = String(now.getHours()).padStart(2, "0");
-  const minuti = String(now.getMinutes()).padStart(2, "0");
+  const ore = now.h;
+  const minuti = now.m;
 
-  const codiceValido = "comune" + ore + minuti;
+  const codiceValido = "COMUNE" + ore + minuti;
 
   const inserito = prompt(
-    "Inserisci il codice di accesso:"
+    "Inserisci il codice di accesso (es. COMUNE1114):"
   );
 
   if (inserito === codiceValido) {
